@@ -72,3 +72,22 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+<hr>
+
+### 처음 풀었던 오답
+```
+function solution(players, callings) {
+    callings.forEach((calling, i) => {
+        for (let j = 0; j < players.length; j++) {
+            if (calling === players[j]) {
+                let origin = players[j - 1]
+                players[j - 1] = calling
+                players[j] = origin
+            }
+        }
+    })
+    
+    return players
+}
+```
+<p>코드 실행에선 성공했지만 테스트 9~16 에선 시간 초과가 났고 이후 map 을 사용하여 해결함</p>
